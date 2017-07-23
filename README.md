@@ -12,7 +12,7 @@ This plugin is for Indexed-List scroll like iOS and Android have, currently work
 
 And link them to your app's right AFTER Framework7's scripts and styles:
 
-```
+```html
 <link rel="stylesheet" href="path/to/framework7.min.css">
 <link rel="stylesheet" href="path/to/framework7.indexed-list.css">
 ...
@@ -21,14 +21,13 @@ And link them to your app's right AFTER Framework7's scripts and styles:
 ```
 
 ## Usage
- put this html code inside .page
-````
+ put this html code inside `.page`
+````html
 <ul class="list-index"></ul>
 ````
 
- init the plugin, .page is the parent container of .list-index
-```
-
+ init the plugin, `.page` is the parent container of `.list-index`
+```js
 var myApp = new Framework7({
     indexedlist:{
         init:true,
