@@ -10,12 +10,6 @@ This plugin is for Indexed-List scroll like iOS and Android have, currently work
 
 ## Installation
 
-Just grab plugin files from `dist/` folder or using bower:
-
-```
-bower install framework7-indexed-list-plugin
-```
-
 And link them to your app's right AFTER Framework7's scripts and styles:
 
 ```
@@ -32,11 +26,15 @@ And link them to your app's right AFTER Framework7's scripts and styles:
 <ul class="list-index"></ul>
 ````
 
+ init the plugin, .page is the parent container of .list-index
+```
+
+var myApp = new Framework7({
+    indexedlist:{
+        init:true,
+        container:'.page'
+    }
+});
+````
 ## Demo:
 https://boynet.github.io/boynet/
-
-OR:
-
-Plugin comes with demo example to see how it works and looks. To make demo works you need: 
-
-* install bower dependencies. Go to `demo/` folder and execute in terminal `bower install`
