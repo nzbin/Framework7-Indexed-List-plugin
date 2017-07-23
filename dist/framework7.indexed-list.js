@@ -1,18 +1,7 @@
-/*
- * Framework7 Indexed List 0.2.0
- * Framework7 plugin to add Alphabet indexed list
- *
- * https://github.com/boynet/Framework7-Indexed-List-plugin
- *
- * Copyright 2015, boynet
- *
- * Licensed under MIT
- *
- * Released on: 17 Sep, 2014
-*/
-Framework7.prototype.plugins.indexedlist = function (app, params) {
+Framework7.prototype.plugins.indexedlist = function(app, params) {
     var $ = window.Dom7;
-
+    // the plugin will not initialize automaticly
+    if (!params.init) return;
 
     function initIndexedList(page) {
         var eventsTarget = $(page.container).find('.list-index');
@@ -47,8 +36,7 @@ Framework7.prototype.plugins.indexedlist = function (app, params) {
             var target;
             if (e.type === 'mousemove') {
                 target = $(e.target);
-            }
-            else {
+            } else {
                 target = $(document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY));
             }
             if (!target.is('li')) target = target.parents('li');
@@ -63,7 +51,7 @@ Framework7.prototype.plugins.indexedlist = function (app, params) {
             isTouched = isMoved = false;
         }
 
-        $(page.container).on('click', '.list-index li', function (e) {
+        $(page.container).on('click', '.list-index li', function(e) {
             var target = $(e.target);
             if (!target.is('li')) target = target.parents('li');
             if (target.length > 0) {
@@ -74,7 +62,7 @@ Framework7.prototype.plugins.indexedlist = function (app, params) {
         function buildLetters() {
             var _letters = [];
             var lettersHtml = '';
-            pageContent.find('.list-group').each(function () {
+            pageContent.find('.list-group').each(function() {
                 var _letterDiv = $(this).find('ul .list-group-title');
                 var _letter = _letterDiv.html().trim().charAt(0).toUpperCase();
                 _letterDiv.attr('data-index-letter', _letter);
@@ -97,10 +85,6 @@ Framework7.prototype.plugins.indexedlist = function (app, params) {
         eventsTarget.on(app.touchEvents.end, handleTouchEnd);
     }
 
+    initIndexedList(params)
 
-    return {
-        hooks: {
-            pageInit: initIndexedList,
-        }
-    };
 };

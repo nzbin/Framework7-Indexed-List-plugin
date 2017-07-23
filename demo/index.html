@@ -6,8 +6,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <title>Indexed List</title>
-        <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.ios.min.css">
-        <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.ios.colors.min.css">
+        <link href="http://cdn.bootcss.com/framework7/1.6.4/css/framework7.ios.min.css" rel="stylesheet">
+        <link href="http://cdn.bootcss.com/framework7/1.6.4/css/framework7.ios.colors.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../dist/framework7.indexed-list.css">
     </head>
     <body>
@@ -568,10 +568,17 @@
                 </div>
             </div>
         </div>
-        <script src="bower_components/framework7/dist/js/framework7.min.js"></script>
+        <script src="http://cdn.bootcss.com/framework7/1.6.3/js/framework7.min.js"></script>
         <script src="../dist/framework7.indexed-list.js"></script>
         <script>
-            var myApp = new Framework7({swipePanel:'left'});
+            var myApp = new Framework7({
+                swipePanel:'left',
+                // init the plugin
+                indexedlist:{
+                    init:true,
+                    container:'.page'
+                }
+            });
             var mainView = myApp.addView('.view-main');
         </script>
     </body>
